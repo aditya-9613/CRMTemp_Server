@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS contacts(
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+
+    username VARCHAR(100) NOT NULL, --User ID to link contact to a specific user
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    designation VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    status VARCHAR(50) NOT NULL DEFAULT 'New',
+    "profileURL" TEXT NOT NULL UNIQUE,
+    company VARCHAR(100) NOT NULL,
+    source VARCHAR(100) NOT NULL,
+
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+)
