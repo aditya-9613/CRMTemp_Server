@@ -25,7 +25,7 @@ const createContactService = async (payload, uid) => {
         [email, phone, profileURL]
     )
 
-    if (duplicateResult.rows.length > 0) {
+    if (duplicateResult.rows.length > 0 && (email !== 'NA' || phone !== 'NA')) {
         throw new ApiError(422, 'Data Duplicate')
     }
 
